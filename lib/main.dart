@@ -34,7 +34,7 @@ class RandomWords extends StatefulWidget {
 
 class _RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
-  final Set<WordPair> _saved = <WordPair>{}; // 新增本行
+  final Set<WordPair> _saved = <WordPair>{};
   final _biggerFont = const TextStyle(fontSize: 18);
 
   @override
@@ -76,7 +76,7 @@ class _RandomWordsState extends State<RandomWords> {
         alreadySaved ? Icons.favorite : Icons.favorite_border,
         color: alreadySaved ? Colors.red : null,
       ),
-      onTap: () {      // 增加如下 9 行代码...
+      onTap: () {
         setState(() {
           if (alreadySaved) {
             _saved.remove(pair);
@@ -90,7 +90,7 @@ class _RandomWordsState extends State<RandomWords> {
 
   void _pushSaved() {
     Navigator.of(context).push(
-        MaterialPageRoute<void>(   // 新增如下20行代码 ...
+        MaterialPageRoute<void>(
           builder: (BuildContext context) {
             final Iterable<ListTile> tiles = _saved.map(
                   (WordPair pair) {
@@ -109,7 +109,7 @@ class _RandomWordsState extends State<RandomWords> {
             )
                 .toList();
 
-            return Scaffold(         // 新增 6 行代码开始 ...
+            return Scaffold(
               appBar: AppBar(
                 title: const Text('Saved Suggestions'),
               ),
