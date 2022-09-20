@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Startup Name Generator',
       home: Scaffold(
         body: Center(
+          // child: Text("HelloWorld!"), // 注释掉下面一行以及以下所有类，启用这行为HelloWorld
           child: RandomWords(),
         ),
       ),
