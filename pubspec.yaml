@@ -39,6 +39,7 @@ dependencies:
   english_words: ^4.0.0
   flutter_screenutil: ^5.5.4
   font_awesome_flutter: ^10.2.1
+  flutter_speed_dial: ^6.0.0
 
 dev_dependencies:
   flutter_test:

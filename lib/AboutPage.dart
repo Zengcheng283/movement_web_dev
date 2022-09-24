@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:movement_web_dev/AboutPage.dart';
-import 'package:movement_web_dev/LoginPage.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'HomePage.dart';
+import 'LoginPage.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
+class AboutPage extends StatefulWidget {
+  const AboutPage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<AboutPage> createState() => _AboutPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
     return const Padding(
         padding: EdgeInsets.all(8),
         child: Text(
-          '主页',
+          '关于',
           style: TextStyle(fontSize: 42),
         ));
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'LoginPage.dart';
 import 'HomePage.dart';
+import 'AboutPage.dart';
 
 void main() => runApp(const MyApp());
 
@@ -19,6 +20,8 @@ class MyApp extends StatelessWidget {
         routes: {
           "/": (BuildContext context) => new LoginPage(title: "登录"), // 首页路由
           "/Home": (BuildContext context) => new HomePage(title: "主页"), // 主页路由
+          "/About": (BuildContext context) =>
+              new AboutPage(title: "关于"), // 关于页路由
         });
   }
 }

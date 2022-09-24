@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movement_web_dev/HomePage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.title}) : super(key: key);
@@ -77,7 +78,11 @@ class _LoginPageState extends State<LoginPage> {
             // 表单校验通过才会继续执行
             if ((_formKey.currentState as FormState).validate()) {
               (_formKey.currentState as FormState).save();
-              Navigator.of(context).pushNamed("/Home");
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const HomePage(title: "主页")),
+                  (route) => false);
             }
           },
         ),
