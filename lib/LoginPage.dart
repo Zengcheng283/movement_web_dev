@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, library_private_types_in_public_api, unused_field
+
 import 'package:flutter/material.dart';
 import 'package:movement_web_dev/HomePage.dart';
 
@@ -18,7 +20,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Form(
+        body: Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("img/background.png"), fit: BoxFit.cover),
+      ),
+      child: Form(
         key: _formKey, // 设置globalKey，用于后面获取FormStat
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: ListView(
@@ -39,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
-    );
+    ));
   }
 
   Widget buildRegisterText(context) {
@@ -49,11 +56,14 @@ class _LoginPageState extends State<LoginPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('没有账号?'),
+            const Text(
+              '没有账号?',
+              style: TextStyle(color: Colors.grey),
+            ),
             GestureDetector(
-              child: const Text('点击注册', style: TextStyle(color: Colors.green)),
+              child: const Text('点击注册', style: TextStyle(color: Colors.white)),
               onTap: () {
-                print("点击注册");
+                Null;
               },
             )
           ],
@@ -69,6 +79,7 @@ class _LoginPageState extends State<LoginPage> {
         width: 270,
         child: ElevatedButton(
           style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.grey),
               // 设置圆角
               shape: MaterialStateProperty.all(const StadiumBorder(
                   side: BorderSide(style: BorderStyle.none)))),
@@ -97,10 +108,10 @@ class _LoginPageState extends State<LoginPage> {
         alignment: Alignment.centerRight,
         child: TextButton(
           onPressed: () {
-            Navigator.pop(context);
+            Null;
           },
           child: const Text("忘记密码？",
-              style: TextStyle(fontSize: 14, color: Colors.grey)),
+              style: TextStyle(fontSize: 14, color: Colors.white)),
         ),
       ),
     );
@@ -108,15 +119,18 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget buildPasswordTextField(BuildContext context) {
     return TextFormField(
+        style: Theme.of(context).textTheme.bodyText2,
         obscureText: _isObscure, // 是否显示文字
         onSaved: (v) => _password = v!,
         validator: (v) {
           if (v!.isEmpty) {
             return '请输入密码';
           }
+          return null;
         },
         decoration: InputDecoration(
             labelText: "Password",
+            labelStyle: Theme.of(context).textTheme.bodyText2,
             suffixIcon: IconButton(
               icon: Icon(
                 Icons.remove_red_eye,
@@ -127,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                 setState(() {
                   _isObscure = !_isObscure;
                   _eyeColor = (_isObscure
-                      ? Colors.grey
+                      ? Colors.white
                       : Theme.of(context).iconTheme.color)!;
                 });
               },
@@ -136,13 +150,17 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget buildEmailTextField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: 'Email Address'),
+      style: Theme.of(context).textTheme.bodyText2,
+      decoration: const InputDecoration(
+          labelText: 'Email Address',
+          labelStyle: TextStyle(color: Colors.white)),
       validator: (v) {
         var emailReg = RegExp(
             r"[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?");
         if (!emailReg.hasMatch(v!)) {
           return '请输入正确的邮箱地址';
         }
+        return null;
       },
       onSaved: (v) => _email = v!,
     );
@@ -154,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Align(
           alignment: Alignment.bottomLeft,
           child: Container(
-            color: Colors.black,
+            color: Colors.white,
             width: 40,
             height: 2,
           ),
@@ -162,11 +180,11 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget buildTitle() {
-    return const Padding(
-        padding: EdgeInsets.all(8),
+    return Padding(
+        padding: const EdgeInsets.all(8),
         child: Text(
           'Login',
-          style: TextStyle(fontSize: 42),
+          style: Theme.of(context).textTheme.headline1,
         ));
   }
 }

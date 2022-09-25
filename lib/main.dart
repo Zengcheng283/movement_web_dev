@@ -14,14 +14,18 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false, // 不显示右上角的 debug
         title: 'Flutter Demo',
         theme: ThemeData(
+          textTheme: const TextTheme(
+            headline1: TextStyle(fontSize: 42, color: Colors.white),
+            bodyText1: TextStyle(fontSize: 18.0, color: Colors.grey),
+            bodyText2: TextStyle(color: Colors.white),
+          ),
           primarySwatch: Colors.blue,
         ),
         // 注册路由表
         routes: {
-          "/": (BuildContext context) => new LoginPage(title: "登录"), // 首页路由
-          "/Home": (BuildContext context) => new HomePage(title: "主页"), // 主页路由
-          "/About": (BuildContext context) =>
-              new AboutPage(title: "关于"), // 关于页路由
+          "/": (context) => const LoginPage(title: "登录"), // 首页路由
+          "/Home": (context) => const HomePage(title: "主页"), // 主页路由
+          "/About": (context) => const AboutPage(title: "关于"), // 关于页路由
         });
   }
 }
