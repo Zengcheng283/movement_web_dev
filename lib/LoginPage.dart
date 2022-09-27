@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
         body: Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("img/background.png"), fit: BoxFit.cover),
+            image: AssetImage("assets/img/background.png"), fit: BoxFit.cover),
       ),
       child: Form(
         key: _formKey, // 设置globalKey，用于后面获取FormStat

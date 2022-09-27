@@ -47,7 +47,8 @@ class _AboutPageState extends State<AboutPage> {
       body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("img/background.png"), fit: BoxFit.cover),
+                image: AssetImage("assets/img/background.png"),
+                fit: BoxFit.cover),
           ),
           child: ListView(
             padding: const EdgeInsets.symmetric(horizontal: 20),
