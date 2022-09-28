@@ -2,7 +2,12 @@
 
 if you want to run on gitpod
 ```bash
+brew tap dart-lang/dart
+brew install dart
+
+git clone https://github.com/flutter/flutter.git
 export PATH="$PATH:`pwd`/flutter/bin"
+
 flutter
 ```
 
