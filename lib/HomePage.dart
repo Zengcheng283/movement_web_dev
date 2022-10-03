@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:movement_web_dev/LoginPage.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
@@ -102,16 +103,9 @@ class _HomePageState extends State<HomePage> {
 }
 
 void getDatas(String uid) async {
-  Dio dio = Dio();
+  Uri uri = Uri.parse("http://127.0.0.1:5590/getData/info/$uid");
 
-  print("http://localhost:4040/x/relation/stat?vmid=$uid&jsonp=jsonp");
+  final response = await http.get(uri);
 
-  final response =
-      await dio.get("http://localhost:4040/x/relation/stat?vmid=11310004");
-
-  if (response.statusCode == HttpStatus.ok) {
-    print(response.data);
-  } else {
-    print("请求失败：${response.statusCode}");
-  }
+  print(response.body);
 }
